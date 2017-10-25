@@ -5,9 +5,9 @@ Once you've cloned the git repository and moved to the branch, and before build 
 $ cd tor
 $ git tag -l
 ```
-At the time this has been written the latest tor version is *tor-0.3.1.7* but one may prefere an alpha version like would be *tor-0.3.2.2-alpha*. To do that:
+At the time this has been written the latest tor version is *tor-0.3.1.8* but one may prefere an alpha version like would be *tor-0.3.2.2-alpha*. To do that:
 ```
-$ git checkout tor-0.3.1.7
+$ git checkout tor-0.3.1.8
 ```
 
 Next step is already to build the docker image:
