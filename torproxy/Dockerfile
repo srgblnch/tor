@@ -17,7 +17,9 @@
 #	docker run tortoys:stretch make check
 
 # Base docker image
-FROM debian:stretch
+ARG DISTRO
+ARG RELEASE
+FROM $DISTRO:$RELEASE
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -43,11 +45,11 @@ RUN useradd --create-home --home-dir $HOME tor \
 
 
 # Add source files
-COPY . /usr/src/tor
-WORKDIR /usr/src/tor
+COPY tor /usr/src/tor
+#WORKDIR /usr/src/tor
 
 # Compile & install tor
-RUN cd tor && \
+RUN cd /usr/src/tor && \
     ./autogen.sh && \
     ./configure &&\
     make && \
