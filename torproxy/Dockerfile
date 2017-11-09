@@ -44,6 +44,8 @@ RUN { \
     echo 'AutomapHostsOnResolve 1'; \
     echo 'TransPort 9040'; \
     echo 'DNSPort 5353'; \
+    echo '#Log info'; \
+    echo '#Log debug file @LOCALSTATEDIR@/log/tor/debug.log'; \
     } >  /etc/torrc && \
     chown tor:tor /etc/torrc
 # TODO: check to be sure the circuit is renew often enough
