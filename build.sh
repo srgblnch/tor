@@ -2,15 +2,15 @@
 
 source scripts/options.sh
 
-# FIXME: improve tag field for debian/$1:$RELEASE support
+# FIXME: improve tag field for $DISTRIBUTION/$IMAGE:$RELEASE support
 #        issue saw when build two images only changing the release.
 
-ln -s $1/Dockerfile Dockerfile
+ln -s $IMAGE/Dockerfile Dockerfile
 
 docker build \
 	--build-arg DISTRO=$DISTRIBUTION \
 	--build-arg RELEASE=$RELEASE \
-	-t debian/$1:$RELEASE \
+	-t $DISTRIBUTION/$IMAGE:$RELEASE \
 	.
 
 rm Dockerfile

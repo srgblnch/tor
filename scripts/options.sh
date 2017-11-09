@@ -16,10 +16,25 @@ releases="jessie stertch"
 # TODO: setup a way to configure launch options,
 #       like '--restart unless-stopped' against '--rm'.
 
-while getopts "h-:" optchar; do
+function help {
+	echo -e "\noptions:"
+	echo "--image=torproxy"
+	#echo "--distribution=debian|raspbian"
+	echo "--release=jessie|stretch"
+	echo ""
+	exit 1
+}
+
+while getopts ":h-:" optchar; do
 	case ${optchar} in
 		-)
 			case "${OPTARG}" in
+			help)
+				help
+				;;
+			image=*)
+				export IMAGE=${OPTARG#*=}
+				;;
 			#distribution=*)
 			#	echo "--distribution triggered, Parameter $OPTARG"
 			#	if [ "$OPTARG" == "$distributions" ]; then
@@ -36,20 +51,27 @@ while getopts "h-:" optchar; do
 				fi
 				export RELEASE=${OPTARG#*=}
 				;;
+			*)
+				echo "Invalid option: --$OPTARG"
+				help
+				exit 1
+				;;
 			esac;;
 		h)
-			echo -e "\noptions:"
-			#echo "--distribution=debian|raspbian"
-			echo "--release=jessie|stretch"
-			echo ""
-			exit 1
+			help
 			;;
-		\?)
-			echo "invalir option: -$OPTARG"
+		*)
+			echo "Invalid option: -$OPTARG"
+			help
 			exit 1
 			;;
 	esac
 done
+
+if [ -v $IMAGE ]; then
+	export IMAGE=torproxy
+	# TODO: when it has more projects, no default and report the options
+fi
 
 if [ -v $DISTRIBUTION ]; then
 	export DISTRIBUTION=debian

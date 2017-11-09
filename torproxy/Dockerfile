@@ -1,21 +1,3 @@
-# VERSION:		  0.1
-# DESCRIPTION:	  Compile and run tor in a container
-# AUTHOR:		  Sergi Blanch-Torne <sergi@calcurco.cat>
-# COMMENTS:
-#       A fork of jessfraz/tor repo, branch add-dockerfile, but with a
-#       different way to think on it.
-# USAGE:
-#	# Build tor image
-#	docker build -t tortoys:stretch .
-#
-#	# Run tor
-#	docker run -d --net host --name tor --rm tortoys:stretch
-#       # or see the console output with
-#       docker run -i --net host --name tor --rm tortoys:stretch
-#
-#	# Run tor tests
-#	docker run tortoys:stretch make check
-
 # Base docker image
 ARG DISTRO
 ARG RELEASE
@@ -62,8 +44,9 @@ RUN { \
     echo 'AutomapHostsOnResolve 1'; \
     echo 'TransPort 9040'; \
     echo 'DNSPort 5353'; \
-} >  /etc/torrc && \
-chown tor:tor /etc/torrc
+    } >  /etc/torrc && \
+    chown tor:tor /etc/torrc
+# TODO: check to be sure the circuit is renew often enough
 
 USER tor
 
