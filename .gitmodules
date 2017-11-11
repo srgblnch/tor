@@ -4,3 +4,6 @@
 [submodule "Shallot"]
 	path = Shallot
 	url = https://github.com/katmagic/Shallot.git
+[submodule "torsocks"]
+	path = torsocks
+	url = https://git.torproject.org/torsocks.git
