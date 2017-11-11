@@ -1,5 +1,7 @@
 # Docker containter to provide tor
 
+![License](https://img.shields.io/badge/License-GPL-blue.svg?style=plastic)
+
 ## Preparation
 
 ### tor sources
