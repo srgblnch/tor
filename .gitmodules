@@ -1,9 +1,9 @@
 [submodule "tor"]
-	path = tor
+	path = thirdparty/tor
 	url = https://git.torproject.org/tor.git
 [submodule "Shallot"]
-	path = Shallot
+	path = thirdparty/Shallot
 	url = https://github.com/katmagic/Shallot.git
 [submodule "torsocks"]
-	path = torsocks
+	path = thirdparty/torsocks
 	url = https://git.torproject.org/torsocks.git

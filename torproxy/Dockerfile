@@ -27,7 +27,7 @@ RUN useradd --create-home --home-dir $HOME tor \
 
 
 # Add source files
-COPY tor /usr/src/tor
+COPY thirdparty/tor /usr/src/tor
 #WORKDIR /usr/src/tor
 
 # Compile & install tor
