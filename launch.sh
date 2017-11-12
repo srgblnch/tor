@@ -5,9 +5,11 @@ if [ -d $IMAGE ]; then
 	if [ -f $IMAGE/launchparams.sh ]; then
 		source $IMAGE/launchparams.sh
 	else
+		# default: but change for each if not defined
 		export INTERACTIVE='-i'
-		export PERSISTENCY=""
+		export PERSISTENCY="--rm"
 		export NETWORKING=""
+		export VOLUMES=""
 	fi
 fi
 
@@ -22,5 +24,5 @@ fi
 # FIXME: how can be preset that an image is thought to be -i or -d
 
 docker run $INTERACTIVE --name $IMAGE \
-	$PERSISTENCY $NETWORKING \
+	$PERSISTENCY $NETWORKING $VOLUMES\
 	$DISTRIBUTION/$IMAGE:$RELEASE
