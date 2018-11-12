@@ -6,6 +6,8 @@
 # long options: (options separed by ',')
 # - the same ':' and '::' meanings
 
+version="1.0.1-alpha"
+
 #distributionss="debian raspbian"
 releases="jessie stertch"
 

@@ -10,7 +10,7 @@ ln -s $IMAGE/Dockerfile Dockerfile
 docker build \
 	--build-arg DISTRO=$DISTRIBUTION \
 	--build-arg RELEASE=$RELEASE \
-	-t $DISTRIBUTION/$IMAGE:$RELEASE \
+	-t $DISTRIBUTION/$RELEASE/$IMAGE:$version \
 	.
 
 rm Dockerfile

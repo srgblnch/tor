@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source scripts/options.sh
+
 if [ -d $IMAGE ]; then
 	if [ -f $IMAGE/launchparams.sh ]; then
 		source $IMAGE/launchparams.sh
@@ -25,4 +26,4 @@ fi
 
 docker run $INTERACTIVE --name $IMAGE \
 	$PERSISTENCY $NETWORKING $VOLUMES\
-	$DISTRIBUTION/$IMAGE:$RELEASE
+	$DISTRIBUTION/$RELEASE/$IMAGE:$version
